@@ -1,0 +1,112 @@
+@startuml Glosario_PlantUML
+' ══════════════════════════════════════════════════════════════
+'  GLOSARIO DE TÉRMINOS PlantUML — 3 Tablas de Referencia
+'  OrientaEduca / UNETI
+'  Uso: abrir con cualquier plugin PlantUML (VS Code, IntelliJ…)
+'       o pegar en https://www.plantuml.com/plantuml/uml/
+' ══════════════════════════════════════════════════════════════
+
+!theme plain
+skinparam backgroundColor #F7F9FC
+skinparam shadowing false
+skinparam noteBackgroundColor #FFFFFF
+skinparam noteBorderColor #D1D5DB
+skinparam noteBorderThickness 1
+skinparam noteFontName Inter
+skinparam noteFontSize 12
+skinparam defaultTextAlignment left
+
+title <size:18><b>Glosario de Términos PlantUML</b></size>\n<size:11><color:#6B7280>Referencia rápida — Tipos · Relaciones · Elementos</color></size>
+
+' ╔══════════════════════════════════════════════╗
+' ║  TABLA 1 — TIPOS DE DIAGRAMAS               ║
+' ╚══════════════════════════════════════════════╝
+note as T1
+  <b><color:#19319C>📊 TABLA 1 — Tipos de Diagramas</color></b>
+  |= <b>Tipo</b>              |= <b>Declaración</b>           |= <b>Para qué se usa</b>                          |
+  | <b>Clases</b>             | @startuml + class X           | Modelar estructura OOP, atributos y métodos     |
+  | <b>Secuencia</b>          | participant / actor           | Interacción entre objetos en el tiempo           |
+  | <b>Casos de Uso</b>       | usecase / actor               | Requisitos funcionales y actores del sistema     |
+  | <b>Actividad</b>          | start / stop / if             | Flujos de proceso, algoritmos, workflows         |
+  | <b>Estado</b>             | state X / [*] --> X           | Ciclo de vida de un objeto o sistema             |
+  | <b>Componentes</b>        | component [X]                 | Arquitectura física o lógica de módulos          |
+  | <b>Despliegue</b>         | node / artifact               | Infraestructura: servidores, contenedores        |
+  | <b>Objetos</b>            | object X / X : valor          | Instancias concretas de clases en un momento     |
+  | <b>Paquetes</b>           | package "Nombre" { }          | Agrupar y organizar elementos relacionados       |
+  | <b>Temporización</b>      | robust / concise              | Señales y cambios de estado a lo largo del tiempo|
+  | <b>Gantt</b>              | [Tarea] lasts N days          | Planificación y cronograma de proyectos          |
+  | <b>Mindmap</b>            | * Raíz / ** Hijo              | Mapas mentales y jerarquías de ideas             |
+  | <b>WBS</b>                | + Nivel 1 / ++ Nivel 2        | Estructura de desglose del trabajo (EDT)         |
+  | <b>JSON</b>               | @startjson / @endjson         | Visualizar estructuras JSON de forma legible     |
+  | <b>YAML</b>               | @startyaml / @endyaml         | Visualizar estructuras YAML de forma legible     |
+  | <b>Matemáticas</b>        | @startmath / @endmath         | Fórmulas matemáticas (AsciiMath / LaTeX)         |
+  | <b>Salt (UI)</b>          | @startsalt / @endsalt         | Maquetas / wireframes de interfaces de usuario   |
+  | <b>C4 Context</b>         | !include C4Context.puml       | Diagramas de arquitectura de software (C4 Model) |
+end note
+
+' ╔══════════════════════════════════════════════╗
+' ║  TABLA 2 — RELACIONES Y FLECHAS             ║
+' ╚══════════════════════════════════════════════╝
+note as T2
+  <b><color:#287A38>🔗 TABLA 2 — Relaciones y Flechas</color></b>
+  |= <b>Nombre</b>            |= <b>Sintaxis PlantUML</b>     |= <b>Significado / Cuándo usarla</b>             |
+  | <b>Asociación</b>         | A --> B                       | Relación genérica entre dos elementos           |
+  | <b>Asociación simple</b>  | A -- B                        | Enlace sin dirección explícita                  |
+  | <b>Dependencia</b>        | A ..> B                       | A usa o depende de B (punteada con flecha)      |
+  | <b>Uso (Use)</b>          | A .up.> B                     | Dependencia con dirección de layout forzada     |
+  | <b>Herencia / Ext.</b>    | A --|> B                      | A extiende B (flecha hueca triangular)          |
+  | <b>Implementación</b>     | A ..|> B                      | A implementa interfaz B (punteada + triángulo)  |
+  | <b>Composición</b>        | A *-- B                       | B forma parte integral de A (rombo lleno)       |
+  | <b>Agregación</b>         | A o-- B                       | B es parte de A pero puede existir sin A        |
+  | <b>Realización</b>        | A ~~> B                       | A realiza o cumple el contrato de B             |
+  | <b>Incluye (UC)</b>       | A .> B : <<include>>          | Caso de uso A siempre incluye a B               |
+  | <b>Extiende (UC)</b>      | B .> A : <<extend>>           | Caso de uso B extiende a A opcionalmente        |
+  | <b>Mensaje (Seq.)</b>     | A -> B : mensaje              | Llamada síncrona en diagramas de secuencia      |
+  | <b>Msg. asíncrono</b>     | A ->> B : evento              | Llamada asíncrona / evento (punta abierta)      |
+  | <b>Respuesta (Seq.)</b>   | B --> A : retorno             | Valor de retorno de una operación               |
+  | <b>Auto-mensaje</b>       | A -> A : self call            | Un objeto se llama a sí mismo                   |
+  | <b>Notas de flecha</b>    | A -> B : texto                | Etiqueta que documenta la relación              |
+  | <b>Mult. izq. / der.</b>  | A "1" -- "0..*" B             | Cardinalidad en extremos de la relación         |
+  | <b>Forzar layout ↑</b>    | A -up-> B / A -u-> B          | Controla la dirección visual del conector       |
+  | <b>Forzar layout →</b>    | A -right-> B / A -r-> B       | Mueve B a la derecha de A en el diagrama        |
+  | <b>Invisible (layout)</b> | A -[hidden]- B                | Alinea elementos sin dibujar la línea           |
+end note
+
+' ╔══════════════════════════════════════════════╗
+' ║  TABLA 3 — ELEMENTOS Y MODIFICADORES        ║
+' ╚══════════════════════════════════════════════╝
+note as T3
+  <b><color:#b45309>⚙️  TABLA 3 — Elementos y Modificadores</color></b>
+  |= <b>Elemento / Cmd</b>    |= <b>Sintaxis PlantUML</b>               |= <b>Descripción</b>                          |
+  | <b>Clase</b>              | class NombreClase { }                   | Declara una clase con secciones opcionales  |
+  | <b>Interfaz</b>           | interface INombre { }                   | Declara una interfaz (tipo abstracto)        |
+  | <b>Abstracta</b>          | abstract class / {abstract}             | Clase o método abstracto                    |
+  | <b>Enumeración</b>        | enum Color { ROJO\nAZUL }               | Tipo de datos enumerado                     |
+  | <b>Estereotipo</b>        | class X <<DTO>>                         | Etiqueta semántica entre «angulares»         |
+  | <b>Spot / ícono</b>       | class X << (S,#FF7700) Servicio >>      | Letra + color en el ícono de la clase       |
+  | <b>Nota simple</b>        | note "texto" as N1                      | Caja de texto flotante en el diagrama       |
+  | <b>Nota adherida</b>      | note right of X : texto                 | Nota anclada a un elemento específico       |
+  | <b>Nota multilínea</b>    | note as N\n  línea 1\n  línea 2\nend note | Bloque de nota con varias líneas         |
+  | <b>Paquete</b>            | package "Módulo" #EEEEEE { }            | Agrupa elementos con color de fondo         |
+  | <b>Espacio de nombres</b> | namespace com.uneti { }                 | Agrupa con notación de punto               |
+  | <b>Frame / Marco</b>      | frame "Sistema" { }                     | Marco visual para delimitar subsistemas     |
+  | <b>Separador</b>          | == Título de sección ==                 | Línea horizontal con etiqueta (secuencia)   |
+  | <b>Activación</b>         | activate / deactivate X                 | Barra de activación en diagramas secuencia  |
+  | <b>Color de elemento</b>  | class X #FFCCCC                         | Fondo de clase con color hexadecimal        |
+  | <b>Ocultar miembro</b>    | hide X members / hide empty methods     | Simplifica el diagrama ocultando partes     |
+  | <b>Mostrar miembro</b>    | show X members                          | Revela partes previamente ocultas           |
+  | <b>skinparam</b>          | skinparam classBorderColor #19319C      | Personaliza colores y fuentes globales      |
+  | <b>!theme</b>             | !theme plain / !theme sketchy           | Aplica un tema visual predefinido           |
+  | <b>Título</b>             | title Mi Diagrama                       | Agrega un título al diagrama               |
+  | <b>Cabecera / Pie</b>     | header Texto / footer Texto             | Texto en la parte superior o inferior      |
+  | <b>Escala</b>             | scale 1.5 / scale 800 width             | Cambia el tamaño de salida de la imagen    |
+  | <b>Incluir archivo</b>    | !include ruta/archivo.puml              | Reutiliza definiciones de otro archivo     |
+  | <b>Variable / macro</b>   | !define NOMBRE valor / !$var = "X"      | Define constantes reutilizables            |
+  | <b>Condicional</b>        | !if / !else / !endif                    | Lógica de preprocesador (stdlib)           |
+end note
+
+' ── Layout: las tres notas en fila horizontal ─────────────────
+T1 -[hidden]right- T2
+T2 -[hidden]right- T3
+
+@enduml

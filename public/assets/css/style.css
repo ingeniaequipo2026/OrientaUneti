@@ -1,0 +1,409 @@
+/**
+ * OrientaUneti - Estilos Institucionales
+ *
+ * PALETA OFICIAL:
+ *   --uneti-green  → Actividades, éxito, check positivo, inscrito
+ *   --uneti-blue   → Marca, identidad institucional, panel admin, estudiantes
+ *   --uneti-sky    → Inscripciones, control de asistencia, acción secundaria
+ *   --uneti-health → Módulo Salud Mental, errores críticos, cupo lleno
+ *   --uneti-amber  → Emprendimientos, mensajes pendientes, advertencias
+ *
+ * REGLA: NUNCA usar hex hardcodeados en style="" ni clases Bootstrap
+ *        (text-primary, text-success, bg-danger…) para UI de la app.
+ *        Usar siempre var(--uneti-*) o las clases .uneti-* definidas aquí.
+ */
+
+:root {
+    /* — Colores primarios institucionales — */
+    --uneti-green: #287A38;
+    --uneti-green-dark: #1e5e2b;
+    --uneti-green-light: #e8f5e9;
+    --uneti-blue: #19319C;
+    --uneti-blue-dark: #10226e;
+    --uneti-blue-light: #e8ecf8;
+
+    /* — Gradientes institucionales — */
+    --uneti-gradient: linear-gradient(135deg, #287A38 0%, #19319C 100%);
+    --uneti-gradient-reverse: linear-gradient(135deg, #19319C 0%, #287A38 100%);
+    --uneti-gradient-subtle: linear-gradient(135deg, rgba(40, 122, 56, 0.08) 0%, rgba(25, 49, 156, 0.08) 100%);
+
+    /* — Sky: Inscripciones / Asistencia — */
+    --uneti-sky: #0369a1;
+    --uneti-sky-light: #e0f2fe;
+
+    /* — Health: Salud Mental / Errores críticos — */
+    --uneti-health: #382796;
+    --uneti-health-light: #fef2f2;
+    --uneti-health-gradient: linear-gradient(135deg, #19319C 0%, #c0392b 100%);
+
+    /* — Amber: Emprendimientos / Pendientes — */
+    --uneti-amber: #b45309;
+    --uneti-amber-light: #fef3c7;
+
+    /* — Neutros de UI — */
+    --uneti-surface: #f7f9fc;
+    --uneti-surface-alt: #f1f5f9;
+    --uneti-border: rgba(0, 0, 0, 0.07);
+    --uneti-text: #2b303a;
+    --uneti-text-muted: #6b7280;
+
+    /* — Footer — */
+    --uneti-footer-bg: #0d1b46;
+    --uneti-footer-text: #d1d5db;
+    --uneti-footer-link: #9ca3af;
+    --uneti-footer-accent: #93c5fd;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--uneti-text);
+    background-color: var(--uneti-surface);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Encabezados y Tipografía */
+h1, h2, h3, h4, h5, h6, .brand-font {
+    font-weight: 700;
+}
+
+.text-uneti-green {
+    color: var(--uneti-green) !important;
+}
+
+.text-uneti-blue {
+    color: var(--uneti-blue) !important;
+}
+
+.text-uneti-sky {
+    color: var(--uneti-sky) !important;
+}
+
+.text-uneti-health {
+    color: var(--uneti-health) !important;
+}
+
+.text-uneti-amber {
+    color: var(--uneti-amber) !important;
+}
+
+.text-uneti-footer-accent {
+    color: var(--uneti-footer-accent) !important;
+}
+
+.bg-uneti-green {
+    background-color: var(--uneti-green) !important;
+}
+
+.bg-uneti-blue {
+    background-color: var(--uneti-blue) !important;
+}
+
+.bg-uneti-sky {
+    background-color: var(--uneti-sky) !important;
+}
+
+.bg-uneti-sky-light {
+    background-color: var(--uneti-sky-light) !important;
+}
+
+.bg-uneti-health {
+    background-color: var(--uneti-health) !important;
+}
+
+.bg-uneti-health-light {
+    background-color: var(--uneti-health-light) !important;
+}
+
+.bg-uneti-amber {
+    background-color: var(--uneti-amber) !important;
+}
+
+.bg-uneti-amber-light {
+    background-color: var(--uneti-amber-light) !important;
+}
+
+.bg-uneti-surface-alt {
+    background-color: var(--uneti-surface-alt) !important;
+}
+
+.bg-gradient-uneti {
+    background: var(--uneti-gradient) !important;
+    color: #ffffff;
+}
+
+.bg-uneti-health-gradient {
+    background: var(--uneti-health-gradient) !important;
+    color: #ffffff;
+}
+
+.border-uneti-green {
+    border-color: var(--uneti-green) !important;
+}
+
+.border-uneti-blue {
+    border-color: var(--uneti-blue) !important;
+}
+
+.border-uneti-sky {
+    border-color: var(--uneti-sky) !important;
+}
+
+.border-uneti-health {
+    border-color: var(--uneti-health) !important;
+}
+
+.border-uneti-amber {
+    border-color: var(--uneti-amber) !important;
+}
+
+/* Barra de Navegación */
+.navbar-uneti {
+    background: #ffffff;
+    border-bottom: 3px solid var(--uneti-green);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-uneti .navbar-main-links {
+    justify-content: space-evenly;
+}
+
+.navbar-uneti .navbar-main-links .nav-link {
+    white-space: nowrap;
+}
+
+.navbar-uneti .navbar-brand {
+    font-weight: 800;
+    font-size: 1.45rem;
+    letter-spacing: -0.5px;
+    background: var(--uneti-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-uneti .nav-link {
+    font-weight: 500;
+    color: #495057;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-uneti .nav-link:hover, .navbar-uneti .nav-link.active {
+    color: var(--uneti-blue);
+    background-color: var(--uneti-blue-light);
+}
+
+/* Botones con degradados institucionales */
+.btn-uneti {
+    background: var(--uneti-gradient);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    padding: 0.55rem 1.4rem;
+    border-radius: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-uneti:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(25, 49, 156, 0.25);
+}
+
+.btn-uneti-green {
+    background-color: var(--uneti-green);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-uneti-green:hover {
+    background-color: var(--uneti-green-dark);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(40, 122, 56, 0.25);
+}
+
+.btn-uneti-blue {
+    background-color: var(--uneti-blue);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-uneti-blue:hover {
+    background-color: var(--uneti-blue-dark);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(25, 49, 156, 0.25);
+}
+
+.btn-uneti-outline {
+    background: transparent;
+    color: var(--uneti-blue);
+    border: 2px solid var(--uneti-blue);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-uneti-outline:hover {
+    background: var(--uneti-blue);
+    color: #ffffff;
+}
+
+.btn-uneti-health {
+    background-color: var(--uneti-health);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-uneti-health:hover {
+    background-color: #a93226;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(192, 57, 43, 0.25);
+}
+
+.btn-uneti-amber {
+    background-color: var(--uneti-amber);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-uneti-amber:hover {
+    background-color: #92400e;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(180, 83, 9, 0.25);
+}
+
+/* Tarjetas y Contenedores */
+.card-uneti {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-uneti:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(25, 49, 156, 0.08);
+}
+
+.card-header-uneti {
+    background: var(--uneti-gradient);
+    color: #ffffff;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+    padding: 1rem 1.25rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--uneti-gradient);
+    color: #ffffff;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+/* Badges de Cupos */
+.badge-cupo-disponible {
+    background-color: var(--uneti-green-light);
+    color: var(--uneti-green-dark);
+    font-weight: 700;
+    border: 1px solid rgba(40, 122, 56, 0.2);
+}
+
+.badge-cupo-lleno {
+    background-color: var(--uneti-health-light);
+    color: var(--uneti-health);
+    font-weight: 700;
+    border: 1px solid rgba(192, 57, 43, 0.2);
+}
+
+/* Barra Lateral / Sidebar de Administración */
+.admin-sidebar {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+}
+
+.admin-sidebar .nav-link {
+    color: #495057;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.admin-sidebar .nav-link i {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+}
+
+.admin-sidebar .nav-link:hover, .admin-sidebar .nav-link.active {
+    background: var(--uneti-blue-light);
+    color: var(--uneti-blue);
+}
+
+/* Tarjetas Estadísticas */
+.stat-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.stat-card i {
+    font-size: 3rem;
+    opacity: 0.25;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+/* Pie de Página */
+.footer-uneti {
+    background: var(--uneti-footer-bg);
+    color: var(--uneti-footer-text);
+    padding: 3rem 0 1.5rem 0;
+    margin-top: 4rem;
+}
+
+.footer-uneti a {
+    color: var(--uneti-footer-link);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-uneti a:hover {
+    color: #ffffff;
+}
